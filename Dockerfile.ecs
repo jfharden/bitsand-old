@@ -15,7 +15,10 @@ RUN apt-get update && apt-get install -y \
   && docker-php-ext-install mysql \
   && mkdir /secrets/ \
   && chown root:www-data /secrets \
-  && chmod 550 /secrets
+  && chmod 550 /secrets \
+  && mkdir /sessions/ \
+  && chown www-data:www-data /sessions/ \
+  && chmod 700 /sessions/
 
 COPY docker-config/system/ /
 COPY --chown=www-data:www-data . /var/www/html/
