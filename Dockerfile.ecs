@@ -1,0 +1,44 @@
+FROM php:5.6-apache
+
+LABEL maintainer="jfharden@gmail.com"
+
+RUN apt-get update && apt-get install -y \
+    python3 \
+    python3-pip \
+    python3-six \
+    python3-pyasn1 \
+    ssmtp \
+  && pip3 install awscli \
+  && apt-get remove --purge -y python3-pip \
+  && apt-get autoremove --purge -y \
+  && rm -rf /var/lib/{apt,dpkg,cache,log} \
+  && docker-php-ext-install mysql \
+  && mkdir /secrets/ \
+  && chown root:www-data /secrets \
+  && chmod 550 /secrets
+
+COPY docker-config/system/ /
+COPY --chown=www-data:www-data . /var/www/html/
+
+COPY docker-config/ecs/ssm-entrypoint.sh /ssm-entrypoint.sh
+COPY docker-config/ecs/php/conf.d/hardening.ini /usr/local/etc/php/conf.d/99-hardening.ini
+
+COPY --chown=www-data:www-data docker-config/bitsand/inc/inc_error.php inc/inc_error.php
+COPY --chown=www-data:www-data docker-config/ecs/bitsand/inc/inc_config.php inc/inc_config.php
+
+COPY --chown=www-data:www-data inc/admin_dist.css inc/admin.css
+COPY --chown=www-data:www-data inc/body_dist.css inc/body.css
+COPY --chown=www-data:www-data inc/help_dist.css inc/help.css
+COPY --chown=www-data:www-data terms_dist.php terms.php
+
+ENV \
+  BITSAND_INSTALL_MODE=FALSE \
+  BITSAND_ROOT_USER_ID=1 \
+  SSM_AWS_REGION=us-east-1 \
+  BITSAND_DEBUG_MODE=FALSE \
+  BITSAND_MAINTAINENCE_MODE=FALSE \
+  BITSAND_LOG_WARNINGS=TRUE \
+  BITSAND_LOG_ERRORS=TRUE
+
+ENTRYPOINT ["/var/www/html/docker-config/ecs/ssm-entrypoint.sh"]
+CMD ["apache2-foreground"]
