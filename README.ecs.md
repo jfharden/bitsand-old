@@ -60,6 +60,7 @@ The file ssm-entrypoint.sh will do the following things
    6. DB_PASS - From value of SSM param with key specified in SSM_KEY_BITSAND_DB_PASS env var
    7. CRYPT_KEY - From value of SSM param with key specified in SSM_KEY_BITSAND_ENCRYPTION_KEY env var
    8. PW_SALT - From value of SSM param with key specified in SSM_KEY_BITSAND_PW_SALT env var
+3. Create an ssmtp config file for sending through SES in `/etc/ssmtp/ssmtp.conf`
 3. Copy `docker-config/ecs/bitsand/terms_$BITSAND_SYSTEM_NAME.php` to `/var/www/html/terms.php`
 4. Unless `BIT_SAND_INSTALL_MODE` is set to `TRUE` will recursively delete `/var/www/html/NON_WEB` and `/var/www/html/install`
 5. Unset some env vars (see above)

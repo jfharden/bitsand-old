@@ -28,6 +28,22 @@ fi
 
 echo "Loaded $SSM_KEY_BITSAND_PW_SALT"
 
+SMTP_USER=`aws ssm get-parameter --region $SSM_AWS_REGION --name /ses/smtp/user --with-decryption --output text --query "Parameter.Value"`
+if [ $? -ne 0 ]; then
+  echo "Failed to lookup SMTP user in SSM key /ses/smtp/user"
+  exit 3
+fi
+
+echo "Loaded /ses/smtp/user"
+
+SMTP_PASS=`aws ssm get-parameter --region $SSM_AWS_REGION --name /ses/smtp/password --with-decryption --output text --query "Parameter.Value"`
+if [ $? -ne 0 ]; then
+  echo "Failed to lookup SMTP password in SSM key /ses/smtp/password"
+  exit 3
+fi
+
+echo "Loaded /ses/smtp/password"
+
 echo "<?php
 define ('ROOT_USER_ID', '$BITSAND_ROOT_USER_ID');
 define ('DB_HOST', '$BITSAND_DB_HOST');
@@ -42,6 +58,31 @@ chmod 440 /secrets/bitsand.php
 chown root:www-data /secrets/bitsand.php
 
 echo "Created /secrets/bitsand.php"
+
+echo "
+# The mail server (where the mail is sent to), both port 465 or 587 should be acceptable
+# See also https://support.google.com/mail/answer/78799
+mailhub=email-smtp.us-east-1.amazonaws.com:587
+
+# The full hostname.  Must be correctly formed, fully qualified domain name or GMail will reject connection.
+hostname=$BITSAND_SYSTEM_NAME.sanctioned-events.com
+
+# Use SSL/TLS before starting negotiation
+UseTLS=Yes
+UseSTARTTLS=Yes
+
+# Username/Password
+AuthUser=$SMTP_USER
+AuthPass=$SMTP_PASS
+AuthMethod=LOGIN
+
+# Email 'From header's can override the default domain?
+FromLineOverride=yes
+" > /etc/ssmtp/ssmtp.conf
+chmod 440 /etc/ssmtp/ssmtp.conf
+chown root:root /etc/ssmtp/ssmtp.conf
+
+echo "Created /etc/ssmtp/ssmtp.conf"
 
 cp /var/www/html/docker-config/ecs/bitsand/terms_${BITSAND_SYSTEM_NAME}.php /var/www/html/terms.php
 
