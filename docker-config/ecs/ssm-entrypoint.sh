@@ -79,7 +79,7 @@ AuthMethod=LOGIN
 # Email 'From header's can override the default domain?
 FromLineOverride=yes
 " > /etc/ssmtp/ssmtp.conf
-chmod 440 /etc/ssmtp/ssmtp.conf
+chmod 444 /etc/ssmtp/ssmtp.conf
 chown root:root /etc/ssmtp/ssmtp.conf
 
 echo "Created /etc/ssmtp/ssmtp.conf"
