@@ -66,3 +66,8 @@ The file ssm-entrypoint.sh will do the following things
 5. Unset some env vars (see above)
 6. Delete `/var/www/html/docker-config` recursively
 
+## Email sending
+
+In order for the system to send email the ___Event contact email___ needs to be verified in AWS SES as a sender. This
+means you need to get the command team running the booking system to help you with the verification process (clicking a
+link in a verification email)
