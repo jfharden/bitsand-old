@@ -96,6 +96,8 @@ else
   rm -rf /var/www/html/install
 fi
 
+echo "Changing permissions of /sessions/"
+
 chown www-data:www-data /sessions/
 chmod 770 /sessions/
 
