@@ -96,6 +96,9 @@ else
   rm -rf /var/www/html/install
 fi
 
+chown www-data:www-data /sessions/
+chmod 770 /sessions/
+
 echo "Unsetting env vars"
 
 unset BITSAND_ROOT_USER_ID
