@@ -102,6 +102,7 @@ if ($_POST ['btnSubmit'] != '') {
 			$sProtocol = parse_url ($_SERVER ['HTTP_REFERER'], PHP_URL_SCHEME) . '://';
 			if ($sProtocol == '://')
 				$sProtocol = 'http://';
+			$sProtocol = "https://";
 			$sHost = $_SERVER ['HTTP_HOST'];
 			$sURI = rtrim (dirname ($_SERVER ['PHP_SELF']), '/\\');
 			$sFile ='start.php';

@@ -63,9 +63,9 @@ if ($_SERVER ["HTTPS"])
 }
 else
 {
-	echo "<script src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.5.1.min.js' type='text/javascript'></script>\n";
-	echo "<script src='http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/jquery-ui.min.js' type='text/javascript'></script>\n";
-	echo "<link href='http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/themes/flick/jquery-ui.css' rel='stylesheet' type='text/css' />\n";
+	echo "<script src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.5.1.min.js' type='text/javascript'></script>\n";
+	echo "<script src='https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/jquery-ui.min.js' type='text/javascript'></script>\n";
+	echo "<link href='https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/themes/flick/jquery-ui.css' rel='stylesheet' type='text/css' />\n";
 }
 echo "<link rel = 'shortcut icon' href = '" . SYSTEM_URL . "favicon.ico'>\n";
 echo "<link rel = 'alternate' type = 'application/rss+xml'  href = '" . SYSTEM_URL .

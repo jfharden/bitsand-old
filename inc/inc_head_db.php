@@ -154,9 +154,14 @@ function CheckReferrer ($Referrer_Check, $Referrer_Check_2 = "") {
 	global $PLAYER_ID;
 	$bForceLogin = True;
 	//Get referrer, minus the query string
+	$sReferrer = 'https://' .
+		parse_url ($_SERVER ['HTTP_REFERER'], PHP_URL_HOST) .
+		parse_url ($_SERVER ['HTTP_REFERER'], PHP_URL_PATH);
+	/*
 	$sReferrer = parse_url ($_SERVER ['HTTP_REFERER'], PHP_URL_SCHEME) . '://' .
 		parse_url ($_SERVER ['HTTP_REFERER'], PHP_URL_HOST) .
 		parse_url ($_SERVER ['HTTP_REFERER'], PHP_URL_PATH);
+	 */
 	if ($sReferrer == fnSystemURL () . $Referrer_Check)
 		$bForceLogin = False;
 	if ($sReferrer == fnSystemURL () . $Referrer_Check_2)
