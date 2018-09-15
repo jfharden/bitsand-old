@@ -8,11 +8,14 @@ RUN apt-get update && apt-get install -y \
     python3-six \
     python3-pyasn1 \
     ssmtp \
+    zlib1g-dev \
   && pip3 install awscli \
   && apt-get remove --purge -y python3-pip \
   && apt-get autoremove --purge -y \
   && rm -rf /var/lib/{apt,dpkg,cache,log} \
-  && docker-php-ext-install mysql \
+  && docker-php-ext-install \
+    mysql \
+    zip \
   && mkdir /secrets/ \
   && chown root:www-data /secrets \
   && chmod 550 /secrets \
