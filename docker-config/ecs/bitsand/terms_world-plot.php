@@ -27,58 +27,40 @@ $bLoginCheck = False;
 include ('inc/inc_head_db.php');
 include ('inc/inc_head_html.php');
 ?>
-<h1><?php echo TITLE?> - Terms &amp; Conditions LOCAL INSTALL</h1>
+<h1>Scheming Demon - Terms &amp; Conditions, Rules &amp Regulations</h1>
 
-<!--
-Provide full terms and conditions below. The text here is from the Lions (Lorien
-Trust) booking site, and can be used as an example/template
--->
-
-<h3>Event &amp; Web Site Terms &amp; Regulations</h3>
-
-<p>
-Please note that fuller rules and regulations and notes on particular issues will be mentioned in the event guide and on the <a href = "http://www.lionsfaction.co.uk/">Lions website</a>
-</p>
-
-<h4>By attending this event, you acknowledge that</h4>
-
-<p>
-To utilise a special effect or power, you must have the appropriate in game prop and authorisation. Or, to put it another way - No Phys Rep, No Effect and No Card, No Effect. Only LRP safe weapons will be allowed on site, subject to checking at registration. Any items judged unsafe should be returned to your vehicle, or can be stored by Games Ops for you during the course of the event. Any noncombat props should be announced on your booking form, presented for a safety check on registration and clearly marked as an NCP throughout the event.
-</p>
-
-<p>
-Burning Ambitions, Sanctioned Events and the Site Custodian cannot be held responsible for the loss or theft of OOC valuables. Secure them in your vehicle, or better yet, don't bring them at all. All lost property should be handed in at Games Ops which is where you should direct any enquiries.
-</p>
-
-<p>
-No controlled substances other than legitimately prescribed drugs will be tolerated on site. Anyone discovered to be in possession of such will be ejected and the relevant authorities notified.
-</p>
-
-<p>
-Burning Ambitions and Sanctioned Events reserve the right to eject anyone from the event for any breach of the regulations of either Burning Ambitions, Sanctioned Events or the site custodian.
-</p>
-
-<p>
-Only referees nominated by the event organisers may direct any kind of plot at this event and any such referee's decision is final. Nominated referees will be carrying Burning Ambitions ref cards.
-</p>
-
-<h4>By using this website, you acknowledge that</h4>
-
-<p>
-Your details will be stored and used for the purposes of booking and administering events run by Burning Ambitions, and will not be shared with third parties without your consent.
-</p>
-
-<p>
-All access to this website will be logged. The primary purpose of these logs is to help discover, and recover from, malicious attacks and attempts to glean personal information.
-</p>
-
-<p>
-You will be required to sign a declaration of agreement to Burning Ambitions, Sanctioned Events and the Site Custiodian's regulations upon arrival at any events booked through this system. You will not be allowed to participate in the event until said declaration has been signed. If you attempt to participate in the event without signing the declaration, you may be ejected from the site.
-</p>
-
-<p>
-Keeping your in character and real world information up to date is your responsibility, and Burning Ambitions cannot be held responsible for errors made due to out of date information.
-</p>
+<ol>
+    <li style='margin-bottom: 0.5em'>
+This event will be using the Lorien LRP Rule system V3. The Lorien LRP System V3 is copyright to the Lorien Trust. The Lorien Trust bears no responsibility for anything occurring at this event.
+    </li>
+    <li style='margin-bottom: 0.5em'>
+LRP is a potentially dangerous hobby and I agree to act in a reasonable and safe manner during any event run by Scheming Demon Events.
+    </li>
+    <li style='margin-bottom: 0.5em'>
+The event organisers and staff cannot be personally liable or held responsible for any injury or damage to any individual participating in any Scheming Demon Events event.
+    </li>
+    <li style='margin-bottom: 0.5em'>
+The event organisers cannot take any responsibility for the loss of property or theft of any personal or communal property during any Scheming Demon Events event.
+    </li>
+    <li style='margin-bottom: 0.5em'>
+The event organisers reserve the right to refuse admission or participation to their events without explanation.
+    </li>
+    <li style='margin-bottom: 0.5em'>
+Metal Weapons or Tools are not to be carried onto site. Camping Knives may only be carried in direct proximity to designated camping areas
+    </li>
+    <li style='margin-bottom: 0.5em'>
+The organisers will expel any individual engaged in illegal, defamatory or dangerous activities during the event.
+    </li>
+    <li style='margin-bottom: 0.5em'>
+The referees' decision is final in all disputes.
+    </li>
+    <li style='margin-bottom: 0.5em'>
+Any cancellations received up to 14 days prior to the event will be subject to a &pound;10 administration fee. Any cancellation received after this deadline will NOT be refunded.
+    </li>
+    <li style='margin-bottom: 0.5em'>
+I understand that LRP is a contact hobby and by signing this form I agree to take part in safe combat and be struck by weapons checked by LT approved weapons checkers.
+    </li>
+</ol>
 
 <?php
 include ('inc/inc_foot.php');
