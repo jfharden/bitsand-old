@@ -5,7 +5,7 @@ services:
     ports:
       - "80:80"
     environment:
-      - BITSAND_ROOT_USER_ID=2
+      - BITSAND_ROOT_USER_ID=1
       - BITSAND_DB_HOST=mysql
       - BITSAND_DB_NAME=bitsandtest
       - BITSAND_DB_USER=bitsandtest
@@ -13,7 +13,7 @@ services:
       - BITSAND_ENCRYPTION_KEY=ceichohr6oothohmuu1pai0pi4aw9pheu1AiMeiliequiy1juethishah5Ooshie3oog2oGhie6luu5ooHak6meiJaif0ohfait1
       - BITSAND_PW_SALT=johvah4buath9kae4veeteezah5saesh0ahc7maiveiYi5Aeso4teeKa1eich7wei4nahyoaquai0phuRahLukaiQuatae4ohghi
       - BITSAND_SYSTEM_URL=http://127.0.0.1/
-      - BITSAND_DEBUG_MODE=TRUE
+      - BITSAND_DEBUG_MODE=FALSE
       - BITSAND_MAINTAINENCE_MODE=FALSE
       - BITSAND_LOG_WARNINGS=TRUE
       - BITSAND_LOG_ERRORS=TRUE
