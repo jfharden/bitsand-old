@@ -12,6 +12,7 @@ services:
       - BITSAND_SYSTEM_NAME=local
       - BITSAND_INSTALL_MODE=TRUE
       - BITSAND_ROOT_USER_ID=1
+      - BITSAND_DB_TYPE=mysql
       - BITSAND_DB_HOST=mysql
       - BITSAND_DB_NAME=bitsandtest
       - BITSAND_DB_USER=bitsandtest
