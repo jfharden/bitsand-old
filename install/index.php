@@ -58,9 +58,17 @@ elseif ($aPhpVersion [0] == 4)
 else
 	echo "<span class = 'sans-warn'>" . PHP_VERSION . " (You need a newer version of PHP to run Bitsand)</span><br>\n";
 
-// Get MySQL version info. Try mysql extension first, then mysqli extension if mysql doesn't work
-if (! @$sMySQLVersion = mysql_get_server_info($link))
+echo "DataBase Type: ";
+if (DB_TYPE === "mysqli" ) {
+	echo "<span class = 'sans-green'>" . DB_TYPE . " (OK)</span><br>\n";
 	$sMySQLVersion = mysqli_get_server_info ($link);
+} elseif (DB_TYPE === "mysql" ) {
+	echo "<span style = 'color: orange; font-weight: bold'>" . DB_TYPE . " (Consider moving to mysqli)</span><br>\n";
+	$sMySQLVersion = mysql_get_server_info($link);
+} else {
+	echo "<span class = 'sans-warn'>" . DB_TYPE . " (UNKNOWN TYPE)</span><br>\n";
+	exit;
+}
 echo "MySQL version: ";
 $aMySqlVersion = explode ('.', $sMySQLVersion);
 
