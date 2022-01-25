@@ -51,16 +51,24 @@ THIS <span style = "font-family: monospace">install</span> DIRECTORY MUST BE DEL
 echo "PHP version: ";
 $aPhpVersion = explode ('.', PHP_VERSION);
 
-if ($aPhpVersion [0] >= 5)
+if ($aPhpVersion [0] >= 7)
 	echo "<span class = 'sans-green'>" . PHP_VERSION . " (OK)</span><br>\n";
-elseif ($aPhpVersion [0] == 4)
-	echo "<span style = 'color: orange; font-weight: bold'>" . PHP_VERSION . " (Probably OK)</span><br>\n";
+elseif ($aPhpVersion [0] >= 4 && $aPhpVersion [0] < 7)
+	echo "<span style = 'color: orange; font-weight: bold'>" . PHP_VERSION . " (PHP 5 and below are long end of life, consider upgrading to PHP 7 or above)</span><br>\n";
 else
 	echo "<span class = 'sans-warn'>" . PHP_VERSION . " (You need a newer version of PHP to run Bitsand)</span><br>\n";
 
-// Get MySQL version info. Try mysql extension first, then mysqli extension if mysql doesn't work
-if (! @$sMySQLVersion = mysql_get_server_info($link))
+echo "DataBase Type: ";
+if (DB_TYPE === "mysqli" ) {
+	echo "<span class = 'sans-green'>" . DB_TYPE . " (OK)</span><br>\n";
 	$sMySQLVersion = mysqli_get_server_info ($link);
+} elseif (DB_TYPE === "mysql" ) {
+	echo "<span style = 'color: orange; font-weight: bold'>" . DB_TYPE . " (Consider moving to mysqli)</span><br>\n";
+	$sMySQLVersion = mysql_get_server_info($link);
+} else {
+	echo "<span class = 'sans-warn'>" . DB_TYPE . " (UNKNOWN TYPE)</span><br>\n";
+	exit;
+}
 echo "MySQL version: ";
 $aMySqlVersion = explode ('.', $sMySQLVersion);
 

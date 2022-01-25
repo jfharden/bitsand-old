@@ -25,12 +25,13 @@
  +---------------------------------------------------------------------------*/
 
 include('../inc/version.php');
+include('../inc/inc_head_db.php');
 
 // Retrieve the MySQL version
-if (function_exists('mysql_get_server_info')) {
-	$sql_version = mysql_get_server_info();
-} elseif (function_exists('mysqli_get_server_info')) {
-	$sql_version = mysqli_get_server_info();
+if (DB_TYPE === "mysqli" ) {
+	$sql_version = mysqli_get_server_info($link);
+} elseif (DB_TYPE === "mysql" ) {
+	$sql_version = mysql_get_server_info($link);
 } else {
 	$sql_version = '0';
 }
